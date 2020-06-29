@@ -1,0 +1,377 @@
+$nav-top-height: 30px;
+$nav-bottom-height: 70px;
+$nav-bottom-item-sublist-width: 160px;
+
+$nav-bottom-sidebar-width: 200px;
+
+// Navbar
+.navigation {
+  background-color: $color-light;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  width: 100%;
+  font-size: 1.1rem;
+
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.75);
+
+  transition: top 0.3s;
+}
+
+.navigation.top-hidden {
+  top: -$nav-top-height;
+}
+
+// Navigation Top - Includes phone and social media links
+.navigation__top {
+  background-color: $color-dark;
+  color: $color-light;
+
+  height: $nav-top-height;
+  padding: 0 5%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation__top__phone {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+  color: $color-light;
+
+  transition: color 0.3s;
+}
+
+.navigation__top__phone:hover {
+  color: #fff;
+}
+
+.navigation__top__sm-container {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  li {
+    margin-right: 20px;
+
+    a {
+      text-decoration: none;
+      color: $color-light;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// Navigation Bottom - Includes logo, actual navigation list, menu btn, and sidebar
+.navigation__bottom {
+  background-color: $color-yellow;
+  color: $color-light;
+
+  height: $nav-bottom-height;
+  padding: 0 5%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+}
+
+.navigation__bottom__logo {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-height: 80%;
+  }
+}
+
+.navigation__bottom__nav {
+  list-style-type: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation__bottom__nav__item {
+  margin-right: 40px;
+  height: $nav-bottom-height;
+  display: flex;
+  align-items: center;
+
+  position: relative;
+
+  a {
+    text-decoration: none;
+    color: $color-red;
+  }
+
+  a:hover {
+    color: #fff;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.navigation__bottom__nav__item__sublist {
+  visibility: hidden;
+  opacity: 0;
+
+  list-style-type: none;
+
+  background-color: $color-red;
+  border-radius: 4px;
+
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: $nav-bottom-item-sublist-width;
+
+  transition: top 0.3s, opacity 0.2s;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+  li {
+    width: 100%;
+
+    a {
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+
+      color: #fff;
+      border-bottom: 1px solid darken($color-red, 10);
+    }
+
+    &:last-child {
+      a {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  li:hover {
+    background-color: $color-yellow;
+  }
+}
+
+.navigation__bottom__nav__item:hover .navigation__bottom__nav__item__sublist {
+  visibility: visible;
+  opacity: 1;
+  top: 100%;
+}
+
+// Navigation Bottom Menu - Toggles Sidebar
+.navigation__bottom__menu-btn {
+  display: none;
+  position: relative;
+
+  width: 40px;
+  height: 30px;
+
+  background: none;
+  border: 0;
+
+  cursor: pointer;
+
+  span {
+    position: absolute;
+    left: 0;
+
+    background-color: $color-red;
+    border-radius: 10px;
+
+    width: 100%;
+    height: 4px;
+  }
+
+  .top-line {
+    top: 0;
+    transition: 0.3s;
+  }
+
+  .middle-line {
+    top: 13px;
+    transition: 0.3s;
+  }
+
+  .bottom-line {
+    top: 26px;
+    transition: 0.3s;
+  }
+}
+
+.navigation__bottom__menu-btn.toggled {
+  .top-line {
+    top: 13px;
+    transform: rotate(45deg);
+  }
+
+  .middle-line {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  .bottom-line {
+    top: 13px;
+    transform: rotate(-45deg);
+  }
+}
+
+.navigation__bottom__menu-btn:focus {
+  outline: 0;
+}
+
+// Navigation Bottom Sidebar - Shown on mobile screens, and its content is same as actual navigation nav list
+.navigation__bottom__sidebar {
+  background-color: $color-yellow;
+
+  list-style-type: none;
+
+  position: absolute;
+  top: 100%;
+  right: -$nav-bottom-sidebar-width;
+
+  width: $nav-bottom-sidebar-width;
+  height: 100vh;
+
+  transition: right 0.3s;
+
+  overflow-y: auto;
+}
+
+.navigation__bottom__sidebar.toggled {
+  right: 0;
+}
+
+.navigation__bottom__sidebar__item {
+  a {
+    display: block;
+    text-decoration: none;
+
+    color: $color-red;
+
+    padding: 5px;
+    border-bottom: 1px solid lighten($color-yellow, 10);
+  }
+}
+
+.navigation__bottom__sidebar__item.with-sublist {
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+      text-align: right;
+      padding-right: 5px;
+
+      font-size: 1.1rem;
+
+      background: none;
+      border: 0;
+      border-bottom: 1px solid lighten($color-yellow, 10);
+      color: $color-red;
+
+      cursor: pointer;
+    }
+
+    button:focus {
+      outline: none;
+    }
+  }
+}
+
+.navigation__bottom__sidebar__item__sublist {
+  // visibility: hidden;
+  // opacity: 0;
+  // height: 0;
+  display: none;
+
+  transition: visibility 0.1s, height 0.3s, opacity 0.2s 0.1s;
+
+  list-style-type: none;
+  background-color: lighten($color-yellow, 10);
+
+  li {
+    a {
+      padding-left: 20px;
+      border-bottom: 1px solid $color-yellow;
+    }
+  }
+}
+
+.navigation__bottom__sidebar__item__sublist.toggled {
+  // visibility: visible;
+  // opacity: 1;
+  // height: 100%;
+  display: block;
+  overflow-y: auto;
+  // transition: visibility 0, opacity 0;
+}
+
+.si {
+  transition: transform 0.3s ease-in;
+}
+
+.si.toggled {
+  transform-origin: center;
+  transform: rotate(180deg);
+}
+
+// Responsiveness
+@media (max-width: 1024px) {
+  .navigation__bottom__nav {
+    display: none;
+  }
+
+  .navigation__bottom__menu-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation__bottom__sidebar {
+    width: 100%;
+    right: -100%;
+  }
+}
