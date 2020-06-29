@@ -1,4 +1,7 @@
 .contact-container {
+  overflow-x: hidden;
+  padding-bottom: 40px;
+
   .form-container {
     display: grid;
     grid-template-columns: 2fr 3fr;

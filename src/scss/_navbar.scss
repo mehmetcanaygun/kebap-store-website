@@ -21,6 +21,11 @@ $nav-bottom-sidebar-width: 200px;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.75);
 
   transition: top 0.3s;
+
+  a.disabled-link {
+    pointer-events: none;
+    color: #fff;
+  }
 }
 
 .navigation.top-hidden {
@@ -127,6 +132,10 @@ $nav-bottom-sidebar-width: 200px;
   align-items: center;
 
   position: relative;
+
+  // .disabled-link {
+  //   pointer-events: none;
+  // }
 
   a {
     text-decoration: none;
@@ -280,6 +289,10 @@ $nav-bottom-sidebar-width: 200px;
 }
 
 .navigation__bottom__sidebar__item {
+  // .disabled-link {
+  //   pointer-events: none;
+  // }
+
   a {
     display: block;
     text-decoration: none;
@@ -295,6 +308,10 @@ $nav-bottom-sidebar-width: 200px;
   div {
     display: flex;
     justify-content: space-between;
+
+    // .disabled-link {
+    //   pointer-events: none;
+    // }
 
     a {
       width: 100%;
@@ -333,6 +350,10 @@ $nav-bottom-sidebar-width: 200px;
   background-color: lighten($color-yellow, 10);
 
   li {
+    // .disabled-link {
+    //   pointer-events: none;
+    // }
+
     a {
       padding-left: 20px;
       border-bottom: 1px solid $color-yellow;

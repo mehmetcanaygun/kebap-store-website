@@ -1,8 +1,8 @@
 .mini-section {
   width: 100%;
   min-height: calc(100vh - 70px);
-  // border: 3px solid red;
   padding: 40px 5%;
+  overflow: hidden;
 }
 
 .mini-section__title {

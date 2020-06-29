@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SiteContext from "../../context/siteContext";
 
 const Navbar = () => {
+  // console.log(document.location.pathname);
   const siteContext = useContext(SiteContext);
 
   const [sidebarToggled, setSidebarToggled] = useState(false);
@@ -110,6 +111,9 @@ const Navbar = () => {
           <li className="navigation__bottom__nav__item">
             <Link
               to="/"
+              className={
+                document.location.pathname === "/" ? "disabled-link" : ""
+              }
               onClick={() => {
                 siteContext.setLoading(true);
               }}
@@ -120,6 +124,11 @@ const Navbar = () => {
           <li className="navigation__bottom__nav__item">
             <Link
               to="/hakkimizda"
+              className={
+                document.location.pathname === "/hakkimizda"
+                  ? "disabled-link"
+                  : ""
+              }
               onClick={() => {
                 siteContext.setLoading(true);
               }}
@@ -130,6 +139,9 @@ const Navbar = () => {
           <li className="navigation__bottom__nav__item">
             <Link
               to="/menu"
+              className={
+                document.location.pathname === "/menu" ? "disabled-link" : ""
+              }
               onClick={() => {
                 siteContext.setLoading(true);
               }}
@@ -140,6 +152,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/kebap"
+                  className={
+                    document.location.pathname === "/kebap"
+                      ? "disabled-link"
+                      : ""
+                  }
                   onClick={() => {
                     siteContext.setLoading(true);
                   }}
@@ -150,6 +167,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/pide"
+                  className={
+                    document.location.pathname === "/pide"
+                      ? "disabled-link"
+                      : ""
+                  }
                   onClick={() => {
                     siteContext.setLoading(true);
                   }}
@@ -160,6 +182,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/izgara"
+                  className={
+                    document.location.pathname === "/izgara"
+                      ? "disabled-link"
+                      : ""
+                  }
                   onClick={() => {
                     siteContext.setLoading(true);
                   }}
@@ -170,6 +197,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/tatli"
+                  className={
+                    document.location.pathname === "/tatli"
+                      ? "disabled-link"
+                      : ""
+                  }
                   onClick={() => {
                     siteContext.setLoading(true);
                   }}
@@ -182,6 +214,11 @@ const Navbar = () => {
           <li className="navigation__bottom__nav__item">
             <Link
               to="/iletisim"
+              className={
+                document.location.pathname === "/iletisim"
+                  ? "disabled-link"
+                  : ""
+              }
               onClick={() => {
                 siteContext.setLoading(true);
               }}
@@ -214,6 +251,9 @@ const Navbar = () => {
           <li className="navigation__bottom__sidebar__item">
             <Link
               to="/"
+              className={
+                document.location.pathname === "/" ? "disabled-link" : ""
+              }
               onClick={() => {
                 setSidebarToggled(false);
                 siteContext.setLoading(true);
@@ -225,6 +265,11 @@ const Navbar = () => {
           <li className="navigation__bottom__sidebar__item">
             <Link
               to="/hakkimizda"
+              className={
+                document.location.pathname === "/hakkimizda"
+                  ? "disabled-link"
+                  : ""
+              }
               onClick={() => {
                 setSidebarToggled(false);
                 siteContext.setLoading(true);
@@ -237,6 +282,9 @@ const Navbar = () => {
             <div>
               <Link
                 to="/menu"
+                className={
+                  document.location.pathname === "/menu" ? "disabled-link" : ""
+                }
                 onClick={() => {
                   setSidebarToggled(false);
                   siteContext.setLoading(true);
@@ -262,6 +310,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/kebap"
+                  className={
+                    document.location.pathname === "/kebap"
+                      ? "disabled-link"
+                      : ""
+                  }
                   onClick={() => {
                     setSidebarToggled(false);
                     siteContext.setLoading(true);
@@ -273,6 +326,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/pide"
+                  className={
+                    document.location.pathname === "/pide"
+                      ? "disabled-link"
+                      : ""
+                  }
                   onClick={() => {
                     setSidebarToggled(false);
                     siteContext.setLoading(true);
@@ -284,6 +342,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/izgara"
+                  className={
+                    document.location.pathname === "/izgara"
+                      ? "disabled-link"
+                      : ""
+                  }
                   onClick={() => {
                     setSidebarToggled(false);
                     siteContext.setLoading(true);
@@ -295,6 +358,11 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/tatli"
+                  className={
+                    document.location.pathname === "/tatli"
+                      ? "disabled-link"
+                      : ""
+                  }
                   onClick={() => {
                     setSidebarToggled(false);
                     siteContext.setLoading(true);
@@ -308,6 +376,11 @@ const Navbar = () => {
           <li className="navigation__bottom__sidebar__item">
             <Link
               to="/iletisim"
+              className={
+                document.location.pathname === "/iletisim"
+                  ? "disabled-link"
+                  : ""
+              }
               onClick={() => {
                 setSidebarToggled(false);
                 siteContext.setLoading(true);
