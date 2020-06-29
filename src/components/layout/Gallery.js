@@ -13,6 +13,8 @@ const Gallery = ({ images }) => {
         <a
           key={i.id}
           href={i.imgLg}
+          target="_blank"
+          rel="noopener noreferrer"
           className="img-container"
           data-aos="fade-up"
         >
