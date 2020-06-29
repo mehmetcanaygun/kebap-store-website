@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import SiteContext from "../../context/siteContext";
 import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -6,11 +7,15 @@ import "aos/dist/aos.css";
 import SlideShow from "../layout/SlideShow";
 
 const Home = () => {
+  const siteContext = useContext(SiteContext);
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
     // Scroll Animations with AOS
     Aos.init({ duration: 1000 });
+
+    siteContext.setLoading(false);
   }, []);
 
   return (

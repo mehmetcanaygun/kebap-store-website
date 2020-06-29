@@ -1,13 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import SiteContext from "../../context/siteContext";
 
 import Header from "../layout/Header";
 import MenuList from "../layout/MenuList";
 
 const Kebap = () => {
+  const siteContext = useContext(SiteContext);
+
   useEffect(() => {
     document.title = "Can Kebap - Kebap";
 
     window.scrollTo(0, 0);
+
+    siteContext.setLoading(false);
   }, []);
 
   return (

@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import SiteContext from "../../context/siteContext";
 
 const Navbar = () => {
+  const siteContext = useContext(SiteContext);
+
   const [sidebarToggled, setSidebarToggled] = useState(false);
   const [navTopVisible, setNavTopVisible] = useState(true);
 
@@ -105,30 +108,86 @@ const Navbar = () => {
         </div>
         <ul className="navigation__bottom__nav">
           <li className="navigation__bottom__nav__item">
-            <Link to="/">Anasayfa</Link>
+            <Link
+              to="/"
+              onClick={() => {
+                siteContext.setLoading(true);
+              }}
+            >
+              Anasayfa
+            </Link>
           </li>
           <li className="navigation__bottom__nav__item">
-            <Link to="/hakkimizda">Hakkımızda</Link>
+            <Link
+              to="/hakkimizda"
+              onClick={() => {
+                siteContext.setLoading(true);
+              }}
+            >
+              Hakkımızda
+            </Link>
           </li>
           <li className="navigation__bottom__nav__item">
-            <Link to="/menu">Menü</Link>
+            <Link
+              to="/menu"
+              onClick={() => {
+                siteContext.setLoading(true);
+              }}
+            >
+              Menü
+            </Link>
             <ul className="navigation__bottom__nav__item__sublist">
               <li>
-                <Link to="/kebap">Kebap</Link>
+                <Link
+                  to="/kebap"
+                  onClick={() => {
+                    siteContext.setLoading(true);
+                  }}
+                >
+                  Kebap
+                </Link>
               </li>
               <li>
-                <Link to="/pide">Pide</Link>
+                <Link
+                  to="/pide"
+                  onClick={() => {
+                    siteContext.setLoading(true);
+                  }}
+                >
+                  Pide
+                </Link>
               </li>
               <li>
-                <Link to="/izgara">Izgara</Link>
+                <Link
+                  to="/izgara"
+                  onClick={() => {
+                    siteContext.setLoading(true);
+                  }}
+                >
+                  Izgara
+                </Link>
               </li>
               <li>
-                <Link to="/tatli">Tatlı</Link>
+                <Link
+                  to="/tatli"
+                  onClick={() => {
+                    siteContext.setLoading(true);
+                  }}
+                >
+                  Tatlı
+                </Link>
               </li>
             </ul>
           </li>
           <li className="navigation__bottom__nav__item">
-            <Link to="/iletisim">İletişim</Link>
+            <Link
+              to="/iletisim"
+              onClick={() => {
+                siteContext.setLoading(true);
+              }}
+            >
+              İletişim
+            </Link>
           </li>
         </ul>
         <button
@@ -157,6 +216,7 @@ const Navbar = () => {
               to="/"
               onClick={() => {
                 setSidebarToggled(false);
+                siteContext.setLoading(true);
               }}
             >
               Anasayfa
@@ -167,6 +227,7 @@ const Navbar = () => {
               to="/hakkimizda"
               onClick={() => {
                 setSidebarToggled(false);
+                siteContext.setLoading(true);
               }}
             >
               Hakkımızda
@@ -178,6 +239,7 @@ const Navbar = () => {
                 to="/menu"
                 onClick={() => {
                   setSidebarToggled(false);
+                  siteContext.setLoading(true);
                 }}
               >
                 Menü
@@ -202,6 +264,7 @@ const Navbar = () => {
                   to="/kebap"
                   onClick={() => {
                     setSidebarToggled(false);
+                    siteContext.setLoading(true);
                   }}
                 >
                   Kepab
@@ -212,6 +275,7 @@ const Navbar = () => {
                   to="/pide"
                   onClick={() => {
                     setSidebarToggled(false);
+                    siteContext.setLoading(true);
                   }}
                 >
                   Pide
@@ -222,6 +286,7 @@ const Navbar = () => {
                   to="/izgara"
                   onClick={() => {
                     setSidebarToggled(false);
+                    siteContext.setLoading(true);
                   }}
                 >
                   Izgara
@@ -232,6 +297,7 @@ const Navbar = () => {
                   to="/tatli"
                   onClick={() => {
                     setSidebarToggled(false);
+                    siteContext.setLoading(true);
                   }}
                 >
                   Tatlı
@@ -244,6 +310,7 @@ const Navbar = () => {
               to="/iletisim"
               onClick={() => {
                 setSidebarToggled(false);
+                siteContext.setLoading(true);
               }}
             >
               İletişim

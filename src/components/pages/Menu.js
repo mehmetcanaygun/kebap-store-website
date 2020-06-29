@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import SiteContext from "../../context/siteContext";
 import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -6,12 +7,16 @@ import "aos/dist/aos.css";
 import Header from "../layout/Header";
 
 const Menu = () => {
+  const siteContext = useContext(SiteContext);
+
   useEffect(() => {
     document.title = "Can Kebap - Menü";
 
     window.scrollTo(0, 0);
 
     Aos.init({ duration: 1000 });
+
+    siteContext.setLoading(false);
   }, []);
 
   return (

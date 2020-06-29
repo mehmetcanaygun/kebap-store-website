@@ -11,21 +11,58 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [mailSent, setMailSent] = useState(false);
   const [error, setError] = useState(null);
+  const [feedbackToggled, setFeedbackToggled] = useState(false);
+  const [feedback, setFeedBack] = useState(
+    "Bizimle iletişime geçtiğiniz için teşekkür ederiz."
+  );
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // console.log({ name, surname, email, phone, message, mailSent, error });
 
-    axios({
-      method: "post",
-      url: `${API_PATH}`,
-      header: { "content-type": "application/json" },
-      data: { name, surname, email, phone, message, mailSent, error },
-    })
-      .then((result) => {
-        setMailSent(result.data.sent);
+    if (
+      name !== "" &&
+      surname !== "" &&
+      email !== "" &&
+      phone !== "" &&
+      message !== ""
+    ) {
+      // Send POST request to PHP file
+      axios({
+        method: "post",
+        url: `${API_PATH}`,
+        header: { "content-type": "application/json" },
+        data: { name, surname, email, phone, message, mailSent, error },
       })
-      .catch((error) => setError(error.message));
+        .then((result) => {
+          setMailSent(result.data.sent);
+        })
+        .catch((error) => setError(error.message));
+
+      if (error === null) {
+        // Clear inputs & toggle feedback(success)
+        setName("");
+        setSurname("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+        setFeedbackToggled(true);
+
+        setTimeout(() => {
+          setFeedbackToggled(false);
+        }, 3000);
+      } else {
+        // Toggle feedback(fail)
+        setFeedBack("Bir hata oluştu. Lütfen tekrar deneyin.");
+        setFeedbackToggled(true);
+
+        setTimeout(() => {
+          setFeedbackToggled(false);
+        }, 3000);
+      }
+    } else {
+      alert("Lütfen tüm alanları doldurduğunuzdan emin olun.");
+    }
   };
 
   return (
@@ -84,6 +121,17 @@ const ContactForm = () => {
           handleFormSubmit(e);
         }}
       />
+      <div
+        className={
+          feedbackToggled
+            ? error === null
+              ? "submit-feedback show success"
+              : "submit-feedback show"
+            : "submit-feedback"
+        }
+      >
+        {feedback}
+      </div>
     </form>
   );
 };

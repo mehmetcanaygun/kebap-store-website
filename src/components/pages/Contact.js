@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import SiteContext from "../../context/siteContext";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -7,12 +8,16 @@ import ContactForm from "../layout/ContactForm";
 import ContactInfo from "../layout/ContactInfo";
 
 const Contact = () => {
+  const siteContext = useContext(SiteContext);
+
   useEffect(() => {
     document.title = "Can Kebap - İletişim";
 
     window.scrollTo(0, 0);
 
     Aos.init({ duration: 1000 });
+
+    siteContext.setLoading(false);
   }, []);
 
   return (

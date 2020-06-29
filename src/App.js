@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import SiteState from "./context/SiteState";
 
+import Loading from "./components/layout/Loading";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Home from "./components/pages/Home";
@@ -17,23 +19,26 @@ import "./css/style.css";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/hakkimizda" component={About} />
-          <Route exact path="/menu" component={Menu} />
-          <Route exact path="/kebap" component={Kebap} />
-          <Route exact path="/pide" component={Pide} />
-          <Route exact path="/izgara" component={Izgara} />
-          <Route exact path="/tatli" component={Tatli} />
-          <Route exact path="/iletisim" component={Contact} />
-          <Route component={NotFound} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <SiteState>
+      <Router>
+        <div className="App">
+          <Loading />
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/hakkimizda" component={About} />
+            <Route exact path="/menu" component={Menu} />
+            <Route exact path="/kebap" component={Kebap} />
+            <Route exact path="/pide" component={Pide} />
+            <Route exact path="/izgara" component={Izgara} />
+            <Route exact path="/tatli" component={Tatli} />
+            <Route exact path="/iletisim" component={Contact} />
+            <Route component={NotFound} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    </SiteState>
   );
 }
 

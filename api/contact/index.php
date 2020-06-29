@@ -14,12 +14,17 @@ if($_POST) {
 	$from = $_POST['email'];
 
 	// Data
-	$msg = $_POST['phone'] . $_POST['message'];
+	// $msg = $_POST['message'] . "\n\n" . "Gönderen: " . $_POST['name'] . " " . $_POST['surname'] . "\n" . "E-mail: " . $_POST['email'] . "\n" . "Telefon: " . $_POST["phone"];
+
+	$msg = "<strong>Gönderen</strong>: " . $_POST["name"] . " " . $_POST["surname"] . "<br/>"; 
+	$msg .= "<strong>Email</strong>: " . $_POST["email"] . "<br/>"; 
+	$msg .= "<strong>Telefon</strong>: " . $_POST["phone"] . "<br/><br/>";
+	$msg .=  $_POST["message"];
 
 	// Headers
 	$headers = "MIME-Version: 1.0\r\n";
 	$headers.= "Content-type: text/html; charset=UTF-8\r\n";
-	$headers.= "From: <" . $from . ">";
+	$headers.= "From: <" . $from . ", web sayfanız üzerinden iletişime geçti." . ">";
 
 	mail($to, $subject, $msg, $headers);
 

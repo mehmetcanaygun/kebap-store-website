@@ -7,6 +7,7 @@
 @import "gallery";
 @import "menu-list";
 @import "home";
+@import "contact-form";
 
 * {
   margin: 0;
@@ -129,128 +130,61 @@ body {
   }
 }
 
-// Contact Page
-.contact-container {
-  // background-color: $color-light;
+// Not Found Page
+.not-found-page {
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-image: url("../assets/images/not-found-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 
-  .form-container {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: 40px;
-  }
+  div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 5%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
 
-  .form-container__info {
-    font-size: 1.5rem;
+    h1 {
+      color: $color-yellow;
+      font-size: 5rem;
+      margin-bottom: 20px;
+    }
 
     p {
+      color: #fff;
+      font-size: 2rem;
       margin-bottom: 20px;
-
-      i {
-        color: $color-red;
-        width: 40px;
-      }
     }
 
-    .sm-list {
-      list-style-type: none;
-      padding: 0;
-      margin-top: 40px;
-      display: flex;
-
-      li {
-        margin-right: 20px;
-
-        a {
-          text-decoration: none;
-
-          i {
-            font-size: 2rem;
-            width: 60px;
-            height: 60px;
-            color: $color-red;
-            background-color: $color-yellow;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 3px 3px 2px #000;
-            transition: transform 0.3s, box-shadow 0.3s;
-          }
-        }
-
-        a:hover {
-          i {
-            transform: translateY(-5px);
-            box-shadow: 5px 5px 10px #000;
-          }
-        }
-      }
-    }
-  }
-
-  .form-container__form {
-    display: grid;
-    grid-template-areas:
-      "name surname"
-      "email phone"
-      "message message"
-      "submit submit";
-    row-gap: 10px;
-    column-gap: 20px;
-
-    #name {
-      grid-area: name;
-    }
-    #surname {
-      grid-area: surname;
-    }
-    #email {
-      grid-area: email;
-    }
-    #phone {
-      grid-area: phone;
-    }
-    #message {
-      grid-area: message;
-    }
-    #submit-btn {
-      grid-area: submit;
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: 0;
-      border-top: 2px solid $color-yellow;
-    }
-
-    .form-input,
-    .form-textarea {
-      background-color: rgba($color-yellow, 0.6);
-      border: 0;
-      border-top: 2px solid $color-red;
-      font-size: 1.1rem;
-      padding: 5px;
-    }
-
-    .form-textarea {
-      resize: none;
-    }
-
-    .form-btn {
-      cursor: pointer;
-      height: 40px;
-      font-size: 1.1rem;
+    a {
+      text-decoration: none;
       text-transform: uppercase;
+      width: 300px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border: 0;
-      background-color: $color-red;
-      color: $color-light;
+      background-color: $color-light;
+      color: $color-red;
+      box-shadow: 3px 3px #000;
+      transition: background-color 0.3s, color 0.3s;
     }
-  }
 
-  .map {
-    margin: 40px 0;
-    width: 100%;
-    height: 400px;
-    background-color: grey;
+    a:hover {
+      background-color: $color-yellow;
+      color: $color-red;
+    }
   }
 }
 
@@ -258,41 +192,6 @@ body {
 @media (max-width: 1024px) {
   body {
     overflow-x: hidden;
-  }
-
-  .contact-container {
-    .form-container__info {
-      font-size: 1.2rem;
-    }
-
-    .form-container__form {
-      grid-template-areas:
-        "name name"
-        "surname surname"
-        "email email"
-        "phone phone"
-        "message message"
-        "submit submit";
-
-      #name {
-        grid-area: name;
-      }
-      #surname {
-        grid-area: surname;
-      }
-      #email {
-        grid-area: email;
-      }
-      #phone {
-        grid-area: phone;
-      }
-      #message {
-        grid-area: message;
-      }
-      #submit-btn {
-        grid-area: submit;
-      }
-    }
   }
 }
 
@@ -305,21 +204,6 @@ body {
   .menu-cards-container {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-  }
-
-  .contact-container {
-    .form-container {
-      grid-template-columns: 1fr;
-      gap: 20px;
-
-      .form-container__form {
-        margin-top: 30px;
-      }
-    }
-
-    .map {
-      height: 200px;
-    }
   }
 }
 
